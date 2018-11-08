@@ -33,10 +33,6 @@ DataHub 采用单向数据流动的原则，使当前项目下的数据状态及
 
 DataHub 将 Mock 数据与字段描述整合处理，自动生成接口文档。使得文档能够与交互字段随时保持一致。
 
-<div align="center">
-  <img src="https://ws1.sinaimg.cn/large/bceaad1fly1fwkm6c8rh3j22a41g8jzd.jpg" width="75%" />
-</div>
-
 ### 场景管理
 
 DataHub 采用多场景设计，能够根据场景名称进行数据分组，同时提供了场景数据的增、删、改，可以通过 DataHub 的面板界面进行操作。
@@ -50,37 +46,17 @@ Datahub 可以定义动态路径，底层使用的是 [path-to-regexp](https://g
 | api3/:id         | api3/fred            |
 | api3/:id         | api3/baz             |
 
-<div align="center">
-  <img src="https://ws1.sinaimg.cn/large/bceaad1fly1fwkm6bxcllj22a41g848i.jpg" width="75%" />
-</div>
-
 ### 快照录入
 
 DataHub 兼备代理功能，会将最近请求的实时响应保存下来，便于归档。也就是说你可以通过已归档的快照随时复现当时的场景。
-
-<div align="center">
-  <img src="https://ws1.sinaimg.cn/large/bceaad1fly1fwkm6ati9ij21kw13ado5.jpg" width="75%" />
-</div>
 
 ### 实验特性 - 导入导出
 
 #### 打开导入导出功能
 
-<div align="center">
-  <img src="https://ws1.sinaimg.cn/large/bceaad1fly1fwkm6dmyoij22b21i8gwb.jpg" width="75%" />
-</div>
-
 #### 导入导出项目数据
 
-<div align="center">
-  <img src="https://ws1.sinaimg.cn/large/bceaad1fly1fwkm6d422ij22a41g8447.jpg" width="75%" />
-</div>
-
 #### 导入导出接口数据
-
-<div align="center">
-  <img src="https://ws1.sinaimg.cn/large/bceaad1fly1fwkm6ctlipj22a41g8484.jpg" width="75%" />
-</div>
 
 ## 声明
 本 DataHub 是基于 Macaca 开源的DataHub二次开发的， 非常感谢Macaca团队。

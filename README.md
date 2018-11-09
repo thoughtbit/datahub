@@ -1,5 +1,5 @@
 # DataHub
-DataHub多场景数据环境管理方案
+DataHub多场景数据环境管理方案，可以自由独立快速的本地部署。
 
 ## 介绍
 
@@ -58,11 +58,70 @@ DataHub 兼备代理功能，会将最近请求的实时响应保存下来，便
 
 #### 导入导出接口数据
 
+## Schema Syntax
+
+DataHub use [standard JSON schema syntax](//github.com/epoberezkin/ajv), schema must has the `root` node.
+
+```json
+{
+  "type": "object",
+  "required": [
+    "success"
+  ],
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "server side success"
+    },
+    "data": {
+      "type": "array",
+      "description": "data field",
+      "required": [
+        "age",
+        "key",
+        "name",
+        "address"
+      ],
+      "items": [
+        {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "key": {
+              "type": "string",
+              "description": "key description"
+            },
+            "name": {
+              "type": "string",
+              "description": "name description"
+            },
+            "age": {
+              "type": "number",
+              "description": "age description"
+            },
+            "address": {
+              "type": "string",
+              "description": "address description"
+            }
+          }
+        }
+      ]
+    },
+    "errorMessage": {
+      "type": "string",
+      "description": "error message description"
+    }
+  }
+}
+```
+
 ## 声明
-本 DataHub 是基于 Macaca 开源的DataHub二次开发的， 非常感谢Macaca团队。
+本 DataHub 是基于 Macaca 开源的DataHub二次开发的， 非常感谢Macaca团队， 同时也感谢大搜车、丁香园、去哪儿等的创意和无私奉献。
 
 ## 参考
-- https://github.com/macacajs/macaca-datahub
+- https://github.com/thoughtbit/datahub
 - https://github.com/YMFE/yapi
 - https://github.com/easy-mock/easy-mock
 - https://github.com/DXY-F2E/api-mocker

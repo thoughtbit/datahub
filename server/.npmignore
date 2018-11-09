@@ -1,0 +1,13 @@
+.*
+test/
+coverage/
+docs/
+logs/
+run/
+logo/
+*.md
+*.tgz
+*.yml
+*.sw*
+*.un~
+!.sequelizerc

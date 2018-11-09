@@ -23,7 +23,7 @@ const datahubConfig = {
   },
   view: {
     // use local resource for test
-    assetsUrl: 'http://localhost:8080',
+    assetsUrl: 'http://localhost:8080/dist/',
   },
 };
 

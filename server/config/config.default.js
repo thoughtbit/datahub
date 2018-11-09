@@ -45,7 +45,7 @@ module.exports = appInfo => {
 
   // for datahub-view
   config.dataHubView = {
-    assetsUrl: 'http://0.0.0.0:9200',
+    assetsUrl: 'http://0.0.0.0:9200/public/',
   };
 
   config.dataHubRpcType = process.env.DATAHUB_RPC_PROTOCOL || 'http';

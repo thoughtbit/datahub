@@ -16,7 +16,6 @@ export default ({ pageConfig, context }) => {
   return (
     <Header className="header">
       <a href="/" className="title-con">
-        <img src="//0.0.0.0:9200/public/logo/logo-color.svg" />
         <span className="title">DataHub</span>
       </a>
       {

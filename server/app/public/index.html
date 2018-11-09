@@ -20,11 +20,11 @@
         var assetsUrl = window.pageConfig.assetsUrl || '//' + location.hostname + ':' + location.port;
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = assetsUrl + '/public/datahub-view.js';
+        script.src = assetsUrl + 'datahub-view.js';
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = assetsUrl + '/public/datahub-view.css';
+        link.href = assetsUrl + 'datahub-view.css';
         var head = document.getElementsByTagName('head')[0];
         head.appendChild(link);
         head.appendChild(script);

@@ -1,5 +1,4 @@
 import React from 'react';
-import GitHubButton from 'react-github-button';
 
 import {
   Layout,

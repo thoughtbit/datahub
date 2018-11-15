@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 import {
-  Alert,
   Layout,
 } from 'antd';
 
@@ -28,8 +27,6 @@ import Footer from './components/layout/Footer';
 
 import { initialExperimentConfig } from './common/helper';
 
-import 'react-github-button/assets/style.css';
-
 import './app.less';
 
 addLocaleData([
@@ -39,7 +36,6 @@ addLocaleData([
 
 const Content = Layout.Content;
 
-const pkg = require('../package.json');
 localStorage.debug = ('datahub*');
 
 class App extends React.Component {

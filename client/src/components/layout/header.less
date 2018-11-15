@@ -2,39 +2,67 @@
 
 .header {
   height: @header-height;
-  border-bottom: 1px solid #f0f2f5;
-
-  .title-con {
-    & a {
-      color: #000;
-    }
-
-    .title {
-      display: inline-block;
-      font-size: 1.5em;
-      font-weight: 500;
-      line-height: @header-height;
-      height: @header-height;
-      margin-left: 6px;
-      color: rgba(0, 0, 0, .85);
-    }
-
-    img {
-      width: 29.45px;
-      height: 30px;
-      position: relative;
-      top: -5px;
+  position: relative;
+  z-index: 888;
+  width: 100%;
+  height: @header-height;
+  line-height: @header-height;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.06);
+  padding: 0 20px;
+  .logo {
+    float: left;
+    height: @header-height;
+    line-height: @header-height;
+    width: 240px;
+    font-size: 24px;
+    margin: 0;
+    .title-con {
+      & a {
+        color: #000;
+      }
+      .title {
+        color: rgba(0, 0, 0, .85);
+      }
+  
+      img {
+        width: 29.45px;
+        height: 30px;
+        position: relative;
+        top: -5px;
+      }
+  
     }
 
   }
 
+  .header-nav {
+    .ant-menu-horizontal {
+      line-height: 58px;
+      border: 0 none;
+      white-space: nowrap;
+    }
+    .ant-menu-horizontal > .ant-menu-item {
+      border: 0 none;
+    }
+    .ant-menu-horizontal > .ant-menu-item-selected {
+      border-top: 2px solid #1890ff;
+    }
+  }
+
+  .header-nav-left {
+    float: left;
+  }
+
+  .header-nav-right {
+    float: right;
+  }
+
   .nav {
     float: right;
-    padding: 0;
+    padding: 18px 0;
     margin: 0;
     min-width: 400px;
     .portrait {
-      display: none;
       .mask {
         display: inline-block;
         background: #f3f3f3;
@@ -56,13 +84,33 @@
       }
     }
     li {
-      line-height: @header-height;
+      line-height: 24px;
       float: right;
       list-style: none;
-      margin-left: 30px;
-      a h3 {
-        margin: 0;
-      }
     }
   }
+
+  .account {
+    .avatar {
+      color: #1890ff;
+      background: rgba(255, 255, 255, 0.85);
+      vertical-align: top;
+    }
+  }
+
+
 }
+.ant-popover .ant-menu {
+  border: 0 none;
+}
+.ant-popover .ant-menu .ant-menu-item {
+  height: 36px;
+  line-height: 36px;
+  color: #595959;
+}
+
+.header-user, 
+.header-new {
+  padding: 0 10px;
+}
+.popover-header-user .avatar { margin-right: 8px; }

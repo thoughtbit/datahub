@@ -36,7 +36,7 @@ export default class SelectHub extends PureComponent {
       </Menu>
     );
     return (
-      <span style={{ marginLeft: '20px' }}>
+      <span style={{ marginRight: '20px', float: 'left' }}>
         <Dropdown overlay={menu}>
           <span data-accessbilityid="dropdonw-list">
             { projectName } <Icon type="down" />

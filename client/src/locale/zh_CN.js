@@ -9,6 +9,14 @@ const zhCN = {
   'common.slogan': '全周期数据环境解决方案，提供命令行工具，支持场景管理，多端接入',
   'common.input.invalid': '请修改输入的内容',
 
+  'menu.account': '个人页',
+  'menu.account.center': '个人中心',
+  'menu.account.settings': '个人设置',
+  'menu.account.trigger': '触发报错',
+  'menu.account.logout': '退出登录',
+  'menu.new.project': '新建项目',
+  'menu.new.data': '新增数据',
+
   'home.go': '立即开始',
 
   'home.icon.cloud': '云端部署',

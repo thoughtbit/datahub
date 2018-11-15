@@ -34,61 +34,57 @@ function Home (props) {
     { icon: 'code-o', text: 'home.icon.cli' },
     { icon: 'global', text: 'home.icon.i18n' },
     { icon: 'github', text: 'home.icon.github' },
-    { icon: 'download', text: 'home.icon.download', experiment: true },
+    { icon: 'download', text: 'home.icon.download', experiment: false },
   ];
   return (
-    <Row type="flex" justify="center">
-      <Col span={22} className="content">
-        <Row type="flex" justify="center">
-          <Col span={16}>
-            <Row type="flex" justify="center">
-              <Col span={12} className="big-image">
-                <img src="//wx4.sinaimg.cn/large/6d308bd9gy1fokqvum2gsj20s10l70vh.jpg" />
-              </Col>
-              <Col span={12}>
-                <p className="slogan">
-                  <span>DataHub</span> - {formatMessage({id: 'common.slogan'})}
-                </p>
-                <a className="go-btn" href="/dashboard">
-                  <Button
-                    data-accessbilityid="go-btn-dashboard"
-                    type="primary"
-                    icon="rocket"
-                    size="large"
-                    ghost
-                  >{formatMessage({id: 'home.go'})}
-                  </Button>
-                </a>
-                <p className="versioning">
-                    server: v{ window.pageConfig.version }
-                </p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row type="flex" justify="center">
-          <Col span={18}>
-            <Row className="desc-icons">
-              {
-                features.map(({ icon, text, experiment = false }) => {
-                  return (
-                    <Col key={`${icon}-${text}`} span={4}>
-                      <Icon type={icon} />
-                      <div className="text">{formatMessage({ id: text })}
-                        { experiment && <Icon type="experiment" style={{
-                          fontSize: '12px',
-                          transform: 'scale(.6)',
-                        }}/> }
-                      </div>
-                    </Col>
-                  );
-                })
-              }
-            </Row>
-          </Col>
-        </Row>
-      </Col>
-    </Row>
+    <React.Fragment>
+      <section className="section">
+        <div className="section-inner clearfix">
+          <div className="project-entry">
+            <p className="slogan">
+              <span>DataHub</span> - {formatMessage({ id: 'common.slogan' })}
+            </p>
+            <a className="go-btn" href="/dashboard">
+              <Button
+                data-accessbilityid="go-btn-dashboard"
+                type="primary"
+                icon="rocket"
+                size="large"
+                ghost
+              >{formatMessage({ id: 'home.go' })}
+              </Button>
+            </a>
+            <p className="versioning">
+              server: v{window.pageConfig.version}
+            </p>
+          </div>
+          <div className="project-blueprint">
+            <img src="//wx4.sinaimg.cn/large/6d308bd9gy1fokqvum2gsj20s10l70vh.jpg" />
+          </div>
+        </div>
+      </section>
+      <section className="section section-bg-skew">
+        <div className="section-inner">
+          <Row className="desc-icons">
+            {
+              features.map(({ icon, text, experiment = false }) => {
+                return (
+                  <Col key={`${icon}-${text}`} span={4}>
+                    <Icon type={icon} />
+                    <div className="text">{formatMessage({ id: text })}
+                      {experiment && <Icon type="experiment" style={{
+                        fontSize: '12px',
+                        transform: 'scale(.6)',
+                      }} />}
+                    </div>
+                  </Col>
+                );
+              })
+            }
+          </Row>
+        </div>
+      </section>
+    </React.Fragment>
   );
 };
 

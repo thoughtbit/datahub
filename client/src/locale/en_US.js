@@ -11,6 +11,14 @@ const enUS = {
 
   'home.go': 'GO NOW',
 
+  'menu.account': 'Account',
+  'menu.account.center': 'Account Center',
+  'menu.account.settings': 'Account Settings',
+  'menu.account.trigger': 'Trigger Error',
+  'menu.account.logout': 'Logout',
+  'menu.new.project': 'New Project',
+  'menu.new.data': 'New Data',
+
   'home.icon.cloud': 'cloud base',
   'home.icon.team': 'teamwork',
   'home.icon.snapshot': 'request snapshot',

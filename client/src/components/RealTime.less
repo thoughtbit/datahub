@@ -1,6 +1,6 @@
 .real-time {
-  height: calc(100vh - 136px);
-  overflow-y: scroll;
+  height: calc(100vh - 108px);
+  overflow-y: auto;
 }
 
 .real-time-line {
@@ -37,7 +37,45 @@
       color: #e63239;
     }
     &.put {
-      color: #3b7bda;
+      color: #fca130;
+    }
+  }
+}
+
+.real-time-hd {
+  .title {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    height: 44px;
+    .title-label {
+      line-height: 44px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-left: 12px;
+      h3 {
+        margin: 0;
+      }
+    }
+    .title-actions {
+      flex: 1;
+      padding-left: 5px;
+      height: 35px;
+      .actions-container {
+        display: flex;
+        margin: 0 auto;
+        padding: 0 8px;
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        height: 42px;
+        .action-item {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          margin-left: 8px;
+        }
+      }
     }
   }
 }

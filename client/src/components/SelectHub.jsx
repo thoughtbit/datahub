@@ -25,7 +25,7 @@ export default class SelectHub extends PureComponent {
     }
 
     const menu = (
-      <Menu>
+      <Menu className="ant-dropdown-project-menu">
         {list.map((item, key) => {
           return (
             <Menu.Item key={key} data-accessbilityid={`dropdonw-list-${key}`}>
@@ -36,13 +36,11 @@ export default class SelectHub extends PureComponent {
       </Menu>
     );
     return (
-      <span style={{ marginRight: '20px', float: 'left' }}>
-        <Dropdown overlay={menu}>
-          <span data-accessbilityid="dropdonw-list">
-            { projectName } <Icon type="down" />
-          </span>
-        </Dropdown>
-      </span>
+      <Dropdown overlay={menu} placement="bottomLeft">
+        <a href="javascript:;" className="ant-dropdown-link" data-accessbilityid="dropdonw-list">
+          <span className="name">{ projectName }</span> <Icon type="down" />
+        </a>
+      </Dropdown>
     );
   }
 }

@@ -6,13 +6,21 @@ import {
   Badge,
 } from 'antd';
 
+import {
+  injectIntl,
+} from 'react-intl';
+
+
 import './RealTime.less';
 
-export default class RealTime extends React.Component {
+class RealTime extends React.Component {
+  formatMessage = id => this.props.intl.formatMessage({ id });
+
   render () {
     const {
       realTimeDataList,
     } = this.props;
+    const formatMessage = this.formatMessage;
     const statusBadge = status => {
       status = String(status);
       if (status.startsWith('2')) {
@@ -31,6 +39,16 @@ export default class RealTime extends React.Component {
     };
     return (
       <div className="real-time">
+        <div className="real-time-hd">
+          <div className="title">
+            <div className="title-label">
+              <h3>{formatMessage('project.realtimeList')}</h3>
+            </div>
+            <div className="title-actions">
+              <ul class="actions-container"></ul>
+            </div>
+          </div>
+        </div>
         {
           realTimeDataList.map((data, index) => {
             return (
@@ -64,3 +82,5 @@ export default class RealTime extends React.Component {
     );
   }
 };
+
+export default injectIntl(RealTime);

@@ -11,6 +11,8 @@ import {
 } from 'react-intl';
 
 import {
+  Tooltip,
+  Icon,
   Affix,
   Alert,
   Layout,
@@ -157,11 +159,16 @@ class Project extends React.Component {
 
   render () {
     const globalProxyEnabled = this.state.interfaceList.every(item => item.proxyConfig.enabled);
-
+    const tabInterfaceList = <Tooltip placement="right" title={this.props.intl.formatMessage({
+      id: 'project.interfaceList',
+    })}><Icon type="api" /></Tooltip>;
+    const tabRealTime = <Tooltip placement="right" title={this.props.intl.formatMessage({
+      id: 'project.realtimeList',
+    })}><Icon type="camera" /></Tooltip>;
     return (
       <Layout>
         <Sider
-          width="300px"
+          width="320px"
           style={{
             background: 'none',
             borderRight: '1px solid rgba(0,0,0,0.05)',
@@ -172,13 +179,12 @@ class Project extends React.Component {
             <Tabs
               defaultActiveKey={interfaceTabSymbol}
               onChange={this.tabOnChange}
-              animated={false}
+              animated={true}
+              tabPosition="left"
               data-accessbilityid="tabs-container"
             >
               <TabPane
-                tab={this.props.intl.formatMessage({
-                  id: 'project.interfaceList',
-                })}
+                tab={tabInterfaceList}
                 key={interfaceTabSymbol}
               >
                 <InterfaceList
@@ -190,9 +196,7 @@ class Project extends React.Component {
                 />
               </TabPane>
               <TabPane
-                tab={this.props.intl.formatMessage({
-                  id: 'project.realtimeList',
-                })}
+                tab={tabRealTime}
                 key={realTimeTabSymbol}
               >
                 <RealTime

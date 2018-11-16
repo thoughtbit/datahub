@@ -5,8 +5,6 @@ import React, {
 } from 'react';
 
 import {
-  Row,
-  Col,
   Icon,
   Input,
   Upload,
@@ -18,7 +16,6 @@ import {
 
 import {
   injectIntl,
-  FormattedMessage,
 } from 'react-intl';
 
 import InterfaceForm from './forms/InterfaceForm';
@@ -26,6 +23,8 @@ import InterfaceForm from './forms/InterfaceForm';
 import { interfaceService } from '../service';
 
 import './InterfaceList.less';
+
+const projectName = window.context.projectName;
 
 const Search = Input.Search;
 
@@ -125,6 +124,10 @@ class InterfaceList extends Component {
     });
   }
 
+  toDocPage = () => {
+    location.href = `//${location.host}/doc/${projectName}`;
+  }
+
   renderInterfaceList = () => {
     const unControlled = this.props.unControlled;
     const formatMessage = this.formatMessage;
@@ -142,10 +145,8 @@ class InterfaceList extends Component {
         >
           <div className="interface-item"
             onClick={() => this.props.setSelectedInterface(value.uniqId)}>
-            <h3 title={value.pathname}>{value.pathname}</h3>
+            <h3 title={value.pathname}><strong className={'method ' + value.method}>{value.method}</strong><span className="pathname">{value.pathname}</span></h3>
             <p title={value.description}>{value.description}</p>
-            <p>method: {value.method}
-            </p>
           </div>
           {!unControlled && <div className="interface-control" style={{fontSize: '16px'}}>
             {this.props.experimentConfig.isOpenDownloadAndUpload ? <span>
@@ -186,26 +187,47 @@ class InterfaceList extends Component {
     if (unControlled) interfaceListClassNames.push('uncontrolled');
     return (
       <div className={`${interfaceListClassNames.join(' ')}`}>
-        {!unControlled && <Row className="interface-filter-row">
-          <Col span={15}>
-            <Search
+        <div className="interface-list-hd">
+          <div className="title">
+            <div className="title-label">
+              <h3>{formatMessage('project.interfaceList')}</h3>
+            </div>
+            <div className="title-actions">
+              {
+                !unControlled &&
+                  <ul class="actions-container">
+                    <li class="action-item">
+                      <Tooltip title={formatMessage('interfaceList.addInterface')}>
+                        <Button
+                          shape="circle"
+                          data-accessbilityid="project-add-api-list-btn"
+                          onClick={this.showCreateForm}
+                        ><Icon type="plus-square" /></Button>
+                      </Tooltip>
+                    </li>
+                    <li class="action-item">
+                      <Tooltip title={formatMessage('topNav.documentation')}>
+                        <Button
+                          shape="circle"
+                          onClick={this.toDocPage}
+                        >
+                          <Icon type="book"/>
+                        </Button>
+                      </Tooltip>
+                    </li>
+                  </ul>
+              }
+            </div>
+          </div>
+          {
+            !unControlled && <div className="search-api-box"><Search
               data-accessbilityid="project-search-api"
               placeholder={formatMessage('interfaceList.searchInterface')}
               onChange={this.filterInterface}
-            />
-          </Col>
-          <Col span={8} offset={1}>
-            <Button
-              type="primary"
-              data-accessbilityid="project-add-api-list-btn"
-              onClick={this.showCreateForm}
-            >
-              <FormattedMessage id="interfaceList.addInterface" />
-            </Button>
-          </Col>
-        </Row>}
-
-        <ul>
+            /></div>
+          }
+        </div>
+        <ul className="interface-list-bd">
           { this.renderInterfaceList() }
         </ul>
 

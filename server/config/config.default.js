@@ -24,6 +24,7 @@ module.exports = appInfo => {
   config.middleware = [
     'exportData',
     'errorHandler',
+    'restc',
   ];
 
   config.exportData = {

@@ -134,7 +134,7 @@ class DashBoard extends Component {
     const { listData } = this.state;
 
     return listData.map((item, index) => {
-      return <Col span={8} key={index}>
+      return <Col span={6} key={index}>
         <div className="content">
           <Card
             title={item.description}
@@ -196,10 +196,10 @@ class DashBoard extends Component {
     return (
       <div className="dashboard">
         <Row type="flex" justify="center">
-          <Col span="22">
+          <Col span="24">
             <Row type="flex">
               { this.renderProjectList() }
-              <Col span={8}>
+              <Col span={6}>
                 <div className="content">
                   <Card
                     title={<FormattedMessage id='project.add' />}

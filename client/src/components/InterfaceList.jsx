@@ -128,6 +128,11 @@ class InterfaceList extends Component {
     location.href = `//${location.host}/doc/${projectName}`;
   }
 
+  toRestcPage = (value) => {
+    // location.href = `//${location.host}/data/${projectName}/${value.pathname}`;
+    window.open(`//${location.host}/data/${projectName}/${value.pathname}#!method=${value.method === 'ALL' ? 'GET' : value.method}`);
+  }
+
   renderInterfaceList = () => {
     const unControlled = this.props.unControlled;
     const formatMessage = this.formatMessage;
@@ -159,6 +164,13 @@ class InterfaceList extends Component {
                 onClick={() => this.downloadInterface(value)}
               />
             </span> : null}
+            <Tooltip title={'预览接口'}>
+              <Icon
+                type="link"
+                className="preview-icon"
+                onClick={() => this.toRestcPage(value) }
+              />
+            </Tooltip>
             <Tooltip title={formatMessage('interfaceList.updateInterface')}>
               <Icon
                 type="setting"

@@ -53,7 +53,7 @@
     "start": "npm run db:migrate && eggctl start --port=9200 --title=egg-server-datahub",
     "stop": "eggctl stop --title=egg-server-datahub",
     "start:use-config": "./bin/datahub.js server -c ./datahub-server.config.js --verbose",
-    "start:egg": "egg-scripts start --daemon --title=egg-server-datahub",
+    "start:egg": "NODE_ENV=production egg-scripts start --port=9200 --daemon --title=egg-server-datahub --env=prod",
     "stop:egg": "egg-scripts stop --title=egg-server-datahub",
     "restart:egg": "npm run stop:egg && npm run start:egg",
     "dev": "egg-bin dev --port 9200",

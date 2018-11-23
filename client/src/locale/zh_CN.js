@@ -47,7 +47,7 @@ const zhCN = {
   'project.realtimeList': '实时快照',
   'project.createApi': '请添加接口',
   'project.create': '创建新项目',
-  'project.update': '更新项目',
+  'project.update': '编辑项目',
   'project.name': '项目名称',
   'project.name.invalid': '请输入小写字母或者数字',
   'project.description': '项目描述',

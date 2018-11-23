@@ -137,10 +137,44 @@ class DashBoard extends Component {
       return <Col span={6} key={index}>
         <div className="content">
           <Card
+            actions={[
+              <Tooltip title={formatMessage('project.update')}>
+                <Icon
+                  className="setting-icon"
+                  type="setting"
+                  onClick={() => this.updateProject(item)}
+                />
+              </Tooltip>,
+              <Popconfirm
+                title={formatMessage('common.deleteTip')}
+                onConfirm={() => this.deleteProject(item.uniqId)}
+                okText={formatMessage('common.confirm')}
+                cancelText={formatMessage('common.cancel')}
+              >
+                <Icon className="delete-icon" type="delete" />
+              </Popconfirm>,
+              <Tooltip title={'查看项目接口列表'}>
+                <a href={`/project/${item.projectName}`}>
+                  <Icon type="eye" />
+                </a>
+              </Tooltip>,
+            ]}
+            extra={
+              this.props.experimentConfig.isOpenDownloadAndUpload ? <span>
+                <Upload name={ item.uniqId } {...this.uploadProps()}>
+                  <Icon className="setting-icon" type="upload" />
+                </Upload>
+                <Icon
+                  type="download"
+                  className="setting-icon"
+                  theme="outlined"
+                  onClick={() => this.downloadProject(item)}
+                />
+              </span> : null
+            }
             title={item.description}
             data-accessbilityid={`dashboard-content-card-${index}`}
             bordered={false}
-            style={{ color: '#000' }}
           >
             <Row type="flex">
               <Col span={24} className="main-icon">
@@ -148,43 +182,13 @@ class DashBoard extends Component {
                   <Icon type="inbox" />
                 </a>
               </Col>
-              <Row type="flex" className="sub-info">
-                <Col span={15} key={item.projectName}>
-                  {item.projectName}
-                  <span className="main-info">
-                    <Icon type="file" />{item.capacity && item.capacity.count}
-                    <Icon type="hdd" />{item.capacity && item.capacity.size}
-                  </span>
-                </Col>
-                <Col span={9} style={{ textAlign: 'right' }}>
-                  <Tooltip title={formatMessage('project.update')}>
-                    <Icon
-                      className="setting-icon"
-                      type="setting"
-                      onClick={() => this.updateProject(item)}
-                    />
-                  </Tooltip>
-                  {this.props.experimentConfig.isOpenDownloadAndUpload ? <span>
-                    <Upload name={ item.uniqId } {...this.uploadProps()}>
-                      <Icon className="setting-icon" type="upload" />
-                    </Upload>
-                    <Icon
-                      type="download"
-                      className="setting-icon"
-                      theme="outlined"
-                      onClick={() => this.downloadProject(item)}
-                    />
-                  </span> : null}
-                  <Popconfirm
-                    title={formatMessage('common.deleteTip')}
-                    onConfirm={() => this.deleteProject(item.uniqId)}
-                    okText={formatMessage('common.confirm')}
-                    cancelText={formatMessage('common.cancel')}
-                  >
-                    <Icon className="delete-icon" type="delete" />
-                  </Popconfirm>
-                </Col>
-              </Row>
+              <Col span={24} className="sub-info">
+                <span className="main-info-title">{item.projectName}</span>
+                <span className="main-info">
+                  <Icon type="file" />{item.capacity && item.capacity.count}
+                  <Icon type="hdd" />{item.capacity && item.capacity.size}
+                </span>
+              </Col>
             </Row>
           </Card>
         </div>

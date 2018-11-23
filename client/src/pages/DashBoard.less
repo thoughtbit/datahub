@@ -2,9 +2,6 @@
   margin-bottom: 10px;
   .content {
     padding: 15px;
-    .anticon {
-      cursor: pointer;
-    }
     .main-icon {
       .anticon {
         transition: color .5s linear;
@@ -15,11 +12,22 @@
           color: #1890ff;
         }
       }
+      .anticon-hdd {
+        cursor: default;
+      }
+      .anticon-file {
+        cursor: default;
+      }
+    }
+    .main-info-title {
+      float: left;
     }
     .main-info {
+      float: right;
       color: gray;
       .anticon {
-        margin-left: 10px;
+        margin-left: 15px;
+        margin-right: 4px;
       }
     }
     .ant-col-24.main-icon {
@@ -40,15 +48,16 @@
         text-overflow: ellipsis;
       }
     }
+    .ant-card-extra {
+      padding: 0;
+    }
     .delete-icon {
       color: #f5222d;
       transition: opacity .5s linear;
-      opacity: 0;
     }
     .setting-icon {
       margin-right: 8px;
       transition: opacity .5s linear;
-      opacity: .3;
     }
     &:hover {
       .setting-icon,

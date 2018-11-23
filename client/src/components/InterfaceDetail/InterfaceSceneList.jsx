@@ -164,7 +164,7 @@ class InterfaceSceneList extends Component {
         <h1><FormattedMessage id='sceneList.title' /></h1>
         {
           ['GET', 'ALL'].includes(this.props.interfaceData.method)
-            ? <a href={this.props.previewLink} target="_blank">{formatMessage('interfaceDetail.previewData')}</a>
+            ? <a href={`${this.props.previewLink}#!method=${this.props.interfaceData.method === 'ALL' ? 'GET' : this.props.interfaceData.method}`} target="_blank">{formatMessage('interfaceDetail.previewData')}</a>
             : ''
         }
         <Row style={{padding: '4px 0'}}>

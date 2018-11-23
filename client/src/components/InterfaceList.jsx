@@ -164,9 +164,9 @@ class InterfaceList extends Component {
                 onClick={() => this.downloadInterface(value)}
               />
             </span> : null}
-            <Tooltip title={'预览接口'}>
+            <Tooltip title={'预览场景数据'}>
               <Icon
-                type="link"
+                type="api"
                 className="preview-icon"
                 onClick={() => this.toRestcPage(value) }
               />

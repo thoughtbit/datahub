@@ -121,7 +121,7 @@ DataHub use [standard JSON schema syntax](//github.com/epoberezkin/ajv), schema 
 本 DataHub 是基于 Macaca 开源的DataHub二次开发的， 非常感谢Macaca团队， 同时也感谢大搜车、丁香园、去哪儿等的创意和无私奉献。
 
 ## 参考
-- https://github.com/thoughtbit/datahub
+- https://github.com/macacajs/macaca-datahub
 - https://github.com/YMFE/yapi
 - https://github.com/easy-mock/easy-mock
 - https://github.com/DXY-F2E/api-mocker

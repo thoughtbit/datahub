@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -148,6 +149,14 @@ module.exports = (env, argv) => {
   if (process.env.npm_config_report) {
     webpackConfig.plugins.push(new BundleAnalyzerPlugin());
   }
+
+  webpackConfig.plugins.push(
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, 'dist'),
+      to: path.resolve(__dirname, '../server/app/public'),
+      force: true,
+    }])
+  );
 
   return webpackConfig;
 };
